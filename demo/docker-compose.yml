@@ -1,0 +1,34 @@
+version: '2'
+
+services:
+  neo4j:
+    image: neo4j:latest
+    hostname: neo4j
+    ports:
+      - "7474:7474"
+      - "7687:7687"
+    volumes:
+      - /tmp/neo4j:/data
+
+  mongodb:
+    image: mongo:latest
+    hostname: mongodb
+    ports:
+      - "27017:27017"
+
+  cassandra:
+    image: cassandra:latest
+    hostname: cassandra
+    ports:
+      - "9042:9042"
+
+  mariadb:
+      image: mariadb
+      restart: always
+      ports:
+        - "3306:3306"
+      environment:
+        MYSQL_ROOT_PASSWORD: secret
+        MYSQL_DATABASE: core
+        MYSQL_USER: bhavio
+        MYSQL_PASSWORD: secret
