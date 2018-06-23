@@ -30,5 +30,5 @@ services:
       environment:
         MYSQL_ROOT_PASSWORD: secret
         MYSQL_DATABASE: core
-        MYSQL_USER: bhavio
+        MYSQL_USER: oneprofile
         MYSQL_PASSWORD: secret

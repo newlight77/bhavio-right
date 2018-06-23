@@ -4,16 +4,16 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>bhavio-right</artifactId>
+    <artifactId>oneprofile-right</artifactId>
     <groupId>com.newlight77</groupId>
     <version>1.0.0-SNAPSHOT</version>
     <packaging>pom</packaging>
 
     <modules>
         <module>demo</module>
-        <module>bhavio-right-model</module>
-        <module>bhavio-right-repository</module>
-        <module>bhavio-right-service</module>
+        <module>oneprofile-right-model</module>
+        <module>oneprofile-right-repository</module>
+        <module>oneprofile-right-service</module>
     </modules>
 
     <properties>
@@ -84,22 +84,22 @@
 
             <dependency>
                 <groupId>com.newlight77</groupId>
-                <artifactId>bhavio-exception</artifactId>
+                <artifactId>oneprofile-exception</artifactId>
                 <version>1.0.0-SNAPSHOT</version>
             </dependency>
             <dependency>
                 <groupId>com.newlight77</groupId>
-                <artifactId>bhavio-right-model</artifactId>
+                <artifactId>oneprofile-right-model</artifactId>
                 <version>${project.version}</version>
             </dependency>
             <dependency>
                 <groupId>com.newlight77</groupId>
-                <artifactId>bhavio-right-repository</artifactId>
+                <artifactId>oneprofile-right-repository</artifactId>
                 <version>${project.version}</version>
             </dependency>
             <dependency>
                 <groupId>com.newlight77</groupId>
-                <artifactId>bhavio-right-service</artifactId>
+                <artifactId>oneprofile-right-service</artifactId>
                 <version>${project.version}</version>
             </dependency>
         </dependencies>
