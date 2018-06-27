@@ -6,5 +6,5 @@ import org.springframework.context.annotation.Configuration;
 
 @EnableRightAspect(db = DB.MONGO)
 @Configuration
-public class AuthorizationConfig {
+public class RightDemoConfig {
 }

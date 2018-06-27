@@ -34,7 +34,7 @@ public class RightAspect {
     this.rightService = rightService;
   }
 
-  @Pointcut("within(@com.newlight77.bhavio.right.aspect.Rights *) || @annotation(com.newlight77.bhavio.right.aspect.Rights)")
+  @Pointcut("within(@com.newlight77.right.aspect.Rights *) || @annotation(com.newlight77.right.aspect.Rights)")
   public void annotatedWithRight() {}
 
   @Before(value = "annotatedWithRight()")
