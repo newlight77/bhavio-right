@@ -9,8 +9,8 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.data.neo4j.repository.config.EnableNeo4jRepositories;
 
 @Configuration
-@EnableNeo4jRepositories(basePackages = { "com.newlight77.bhavio.right.demo.repository" })
-@EntityScan(basePackages = "com.newlight77.bhavio.right.demo.entity")
+@EnableNeo4jRepositories(basePackages = { "com.newlight77.right.demo.repository" })
+@EntityScan(basePackages = "com.newlight77.right.demo.entity")
 public class UserResourceConfig {
 
   @Autowired

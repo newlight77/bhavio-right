@@ -23,6 +23,8 @@ public class RightNeo4jEntity implements Serializable{
 
   private static final long serialVersionUID = 2196530990380331933L;
 
+  public RightNeo4jEntity() {}
+
   @Id
   @GeneratedValue(strategy = UuidStrategy.class)
   private String uid;

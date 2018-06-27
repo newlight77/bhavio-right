@@ -1,0 +1,20 @@
+server:
+  address: 0.0.0.0
+  port: 8080
+  servlet:
+    contextPath: /right-demo
+
+logging:
+  config: classpath:logback.xml
+  level:
+    org.springframework.security: DEBUG
+
+spring:
+  data:
+    neo4j:
+      username: neo4j
+      password: secret
+      uri: bolt://neo4j
+
+data:
+  path: /data

@@ -1,6 +1,24 @@
 version: '2'
 
 services:
+  right-demo:
+    image: java:8-alpine
+    hostname: client
+    links:
+      - neo4j
+    ports:
+      - "8080:8080"
+      - "5002:5002"
+    volumes:
+      - ./docker/config/right/run.sh:/demo/run.sh
+      - ./docker/config/right/logback.xml:/demo/config/logback.xml
+      - ./docker/config/right/application.properties:/demo/config/application.properties
+      - ./oneprofile-right-demo/target/oneprofile-right-demo-fat-exec.jar:/demo/jars/app-fat-exec.jar
+    working_dir: "/demo"
+#      command: "java -jar /demo/jars/app-fat-exec.jar"
+#      command: "java -jar /demo/jars/app-fat-exec.jar --jwt.publickey.path=/demo/config/key.pub"
+    command: "/demo/run.sh 5002"
+
   neo4j:
     image: neo4j:latest
     hostname: neo4j
@@ -29,6 +47,6 @@ services:
         - "3306:3306"
       environment:
         MYSQL_ROOT_PASSWORD: secret
-        MYSQL_DATABASE: core
+        MYSQL_DATABASE: right
         MYSQL_USER: oneprofile
         MYSQL_PASSWORD: secret

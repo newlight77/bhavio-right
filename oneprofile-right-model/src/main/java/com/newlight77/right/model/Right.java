@@ -1,10 +1,13 @@
 package com.newlight77.right.model;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonValue;
+
 public enum Right {
 
-  READ("read"),
-  WRITE("write"),
-  DELETE("delete");
+  ADMIN_READ("admin_read"),
+  ADMIN_WRITE("admin_write"),
+  ADMIN_DELETE("admin_delete");
 
   private final String value;
 
@@ -12,16 +15,18 @@ public enum Right {
     this.value = value;
   }
 
-  public static Right fromValue(String value) {
+  @JsonCreator
+  public static Right value(String value) {
     for (Right right : values()) {
-      if (value.equals(right.getValue())) {
+      if (value.equals(right.value())) {
         return right;
       }
     }
     throw new IllegalArgumentException(value);
   }
 
-  public String getValue() {
+  @JsonValue
+  public String value() {
     return value;
   }
 }

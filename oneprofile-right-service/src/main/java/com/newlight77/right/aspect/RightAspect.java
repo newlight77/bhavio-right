@@ -61,11 +61,11 @@ public class RightAspect {
         && argNames.length > 0
         && argValues.length == argNames.length) {
       for (int i = 0; i < argNames.length; i++) {
-        if (StringUtils.isNotBlank(argNames[i]) && PRIMARY_PARAM.equals(argNames[i])) {
+        if (StringUtils.isNotBlank(argNames[i]) && PRIMARY_PARAM.contains(argNames[i])) {
           primary = (String) argValues[i];
         }
 
-        if (StringUtils.isNotBlank(argNames[i]) && SECONDARY_PARAM.equals(argNames[i])) {
+        if (StringUtils.isNotBlank(argNames[i]) && SECONDARY_PARAM.contains(argNames[i])) {
           secondary = (String) argValues[i];
         }
       }

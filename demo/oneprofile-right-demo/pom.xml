@@ -114,7 +114,7 @@
                         </goals>
                         <configuration>
                             <classifier>exec</classifier>
-                            <mainClass>com.newlight77.oneprofile.right.demo.DemoApplication</mainClass>
+                            <mainClass>com.newlight77.right.demo.RightDemoApplication</mainClass>
                             <finalName>${project.artifactId}-fat</finalName>
                         </configuration>
                     </execution>

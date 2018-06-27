@@ -5,12 +5,12 @@ import org.slf4j.LoggerFactory;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-@SpringBootApplication(scanBasePackages="com.bhavio")
-public class DemoApplication {
+@SpringBootApplication(scanBasePackages="com.newlight77")
+public class RightDemoApplication {
 
-  private final Logger LOGGER = LoggerFactory.getLogger(DemoApplication.class);
+  private final Logger LOGGER = LoggerFactory.getLogger(RightDemoApplication.class);
 
   public static void main(String[] args) throws Exception {
-    SpringApplication.run(DemoApplication.class, args);
+    SpringApplication.run(RightDemoApplication.class, args);
   }
 }

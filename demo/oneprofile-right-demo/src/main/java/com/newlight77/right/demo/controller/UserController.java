@@ -1,6 +1,6 @@
 package com.newlight77.right.demo.controller;
 
-import com.newlight77.right.demo.model.User;
+import com.newlight77.right.demo.model.UserModel;
 import com.newlight77.right.demo.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -22,12 +22,14 @@ public class UserController {
   }
 
   @PostMapping(value = "")
-  public User create(@RequestBody User user) {
-    return userService.save(user);
+  public UserModel create(@RequestHeader("primary") String primay,
+                          @RequestHeader("secondary") String secondary,
+                          @RequestBody UserModel userModel) {
+    return userService.save(primay, secondary, userModel);
   }
 
   @GetMapping(value = "/{id}")
-  public User findById(Long id) {
+  public UserModel findById(Long id) {
     return userService.findById(id);
   }
 
@@ -37,17 +39,17 @@ public class UserController {
   }
 
   @GetMapping(value = "/page")
-  public Page<User> findAll(Pageable pageable) {
+  public Page<UserModel> findAll(Pageable pageable) {
     return userService.findAll(pageable);
   }
 
   @GetMapping(value = "", params = {"username"})
-  public Collection<User> findByUsername(@RequestParam String username) {
+  public Collection<UserModel> findByUsername(@RequestParam String username) {
     return userService.findByUsername(username);
   }
 
   @GetMapping(value = "", params = {"firstname", "lastname"})
-  public Collection<User> find(@RequestParam String firstname, @RequestParam String lastname) {
+  public Collection<UserModel> find(@RequestParam String firstname, @RequestParam String lastname) {
     return userService.find(firstname, lastname);
   }
 

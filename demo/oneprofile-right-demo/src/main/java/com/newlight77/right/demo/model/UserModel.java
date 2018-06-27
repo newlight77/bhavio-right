@@ -7,7 +7,7 @@ import lombok.*;
 @Getter
 @ToString
 @EqualsAndHashCode
-public class User {
+public class UserModel {
   private String firstname;
   private String lastname;
   private String username;
