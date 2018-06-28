@@ -20,11 +20,30 @@ public class RightsInjectionRunner implements CommandLineRunner {
 
     @Override
     public void run(final String... args) throws Exception {
-        RightNeo4jEntity entity = RightNeo4jEntity.builder()
+        RightNeo4jEntity entity1 = RightNeo4jEntity.builder()
+                .primary("master_user")
+                .secondary("core_resource")
+                .rights(Sets.newHashSet(Right.ADMIN_READ, Right.ADMIN_WRITE))
+                .build();
+        rightRepository.save(entity1);
+        RightNeo4jEntity entity2 = RightNeo4jEntity.builder()
                 .primary("master_user")
                 .secondary("admin_resource")
                 .rights(Sets.newHashSet(Right.ADMIN_READ, Right.ADMIN_WRITE))
                 .build();
-        rightRepository.save(entity);
+        rightRepository.save(entity2);
+
+        RightNeo4jEntity entity11 = RightNeo4jEntity.builder()
+                .primary("master_user")
+                .secondary("core_resource")
+                .rights(Sets.newHashSet(Right.ADMIN_READ, Right.ADMIN_WRITE))
+                .build();
+        rightRepository.save(entity11);
+        RightNeo4jEntity entity22 = RightNeo4jEntity.builder()
+                .primary("master_user")
+                .secondary("admin_resource")
+                .rights(Sets.newHashSet(Right.ADMIN_READ, Right.ADMIN_WRITE))
+                .build();
+        rightRepository.save(entity22);
     }
 }
