@@ -11,8 +11,12 @@
 
     <modules>
         <module>demo</module>
+        <module>oneprofile-right-annotation</module>
         <module>oneprofile-right-model</module>
-        <module>oneprofile-right-repository</module>
+        <module>oneprofile-right-service-cassandra</module>
+        <module>oneprofile-right-service-jpa</module>
+        <module>oneprofile-right-service-mongo</module>
+        <module>oneprofile-right-service-neo4j</module>
         <module>oneprofile-right-service</module>
     </modules>
 

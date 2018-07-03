@@ -42,10 +42,6 @@
             <artifactId>spring-boot-starter-test</artifactId>
         </dependency>
 
-        <dependency>
-            <groupId>mysql</groupId>
-            <artifactId>mysql-connector-java</artifactId>
-        </dependency>
 
         <!--Project specific-->
 
@@ -60,6 +56,11 @@
             <artifactId>commons-lang3</artifactId>
             <version>3.4</version>
         </dependency>
+        <dependency>
+            <groupId>com.google.guava</groupId>
+            <artifactId>guava</artifactId>
+            <version>25.1-jre</version>
+        </dependency>
 
         <!--Project specific-->
         <dependency>
@@ -69,8 +70,22 @@
         </dependency>
         <dependency>
             <groupId>com.newlight77</groupId>
-            <artifactId>oneprofile-right-service</artifactId>
+            <artifactId>oneprofile-right-annotation</artifactId>
             <version>1.0.0-SNAPSHOT</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>com.newlight77</groupId>
+                    <artifactId>oneprofile-right-service-cassandra</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>com.newlight77</groupId>
+                    <artifactId>oneprofile-right-service-jpa</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>com.newlight77</groupId>
+                    <artifactId>oneprofile-right-service-mongo</artifactId>
+                </exclusion>
+            </exclusions>
         </dependency>
 
     </dependencies>
