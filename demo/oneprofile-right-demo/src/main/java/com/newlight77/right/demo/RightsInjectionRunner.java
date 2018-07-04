@@ -44,6 +44,6 @@ public class RightsInjectionRunner implements CommandLineRunner {
                 .secondary("admin_resource")
                 .rights(Sets.newHashSet(Right.ADMIN_READ, Right.ADMIN_WRITE))
                 .build();
-        rightRepository.save(entity22);
+//        rightRepository.save(entity22);
     }
 }

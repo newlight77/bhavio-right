@@ -1,7 +1,6 @@
 package com.newlight77.right.demo.controller;
 
 import com.newlight77.right.demo.model.RightsModel;
-import com.newlight77.right.demo.model.UserModel;
 import com.newlight77.right.service.RightFilter;
 import com.newlight77.right.service.RightService;
 import org.springframework.beans.factory.annotation.Autowired;
