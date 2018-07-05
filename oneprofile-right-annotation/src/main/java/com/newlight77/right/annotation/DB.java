@@ -1,29 +1,24 @@
 package com.newlight77.right.annotation;
 
-import com.newlight77.right.service.impl.RightCassandraService;
-import com.newlight77.right.service.impl.RightJpaService;
-import com.newlight77.right.service.impl.RightMongoService;
-import com.newlight77.right.service.impl.RightNeo4JService;
-
 import java.util.Arrays;
 import java.util.List;
 
 public enum DB {
 
   JPA(Arrays.asList(
-      new Binder(RightJpaService.class, "rightService", "rightJpaRepository")
+      new Binder("jpa","RightJpaService", "rightService", "rightJpaRepository")
   )),
 
   CASSANDRA(Arrays.asList(
-      new Binder(RightCassandraService.class, "rightService", "rightCassandraRepository")
+      new Binder("cassandra", "RightCassandraService", "rightService", "rightCassandraRepository")
   )),
 
   MONGO(Arrays.asList(
-      new Binder(RightMongoService.class, "rightService", "rightMongoRepository")
+      new Binder("mongo","RightMongoService", "rightService", "rightMongoRepository")
   )),
 
   NEO4J(Arrays.asList(
-      new Binder(RightNeo4JService.class, "rightService", "rightNeo4jRepository")
+      new Binder("neo4j", "RightNeo4JService", "rightService", "rightNeo4jRepository")
   ));
 
   List<Binder> binders;
@@ -32,17 +27,19 @@ public enum DB {
     binders = list;
   }
 
-  public List<Binder> getBinders() {
-    return binders;
-  }
-
   static class Binder {
+    String name;
     Class<?> serviceClazz;
     String serviceBeanName;
     String repositoryBeanName;
 
-    Binder(Class<?> clazz, String serviceName, String repositoryName) {
-      serviceClazz = clazz;
+    Binder(String name, String clazz, String serviceName, String repositoryName) {
+      this.name = name;
+      try {
+        serviceClazz = this.getClass().getClassLoader().loadClass(clazz);
+      } catch (ClassNotFoundException e) {
+        System.out.println("It's ok! ClassNotFoundException for " + e.getMessage() + ". Make sur to inject the proper proper oneprofile-right-service-" + this.name);
+      }
       serviceBeanName = serviceName;
       repositoryBeanName = repositoryName;
     }

@@ -30,10 +30,12 @@ public class RightConfigurationRegistrar implements ImportBeanDefinitionRegistra
       }
 
       db.binders.forEach(binder -> {
-            BeanDefinitionBuilder builder = BeanDefinitionBuilder
-                .rootBeanDefinition(binder.getServiceClazz())
-                .addDependsOn(binder.getRepositoryBeanName());
-            registry.registerBeanDefinition(binder.getServiceBeanName(), builder.getBeanDefinition());
+            if (binder.getServiceClazz() != null) {
+              BeanDefinitionBuilder builder = BeanDefinitionBuilder
+                      .rootBeanDefinition(binder.getServiceClazz())
+                      .addDependsOn(binder.getRepositoryBeanName());
+              registry.registerBeanDefinition(binder.getServiceBeanName(), builder.getBeanDefinition());
+            }
           }
       );
     }
