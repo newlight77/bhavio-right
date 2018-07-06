@@ -26,7 +26,7 @@ public class RightAspect {
   private static final Logger LOGGER = LoggerFactory.getLogger(RightAspect.class);
 
   private static final List<String> PRIMARY_PARAM = Arrays.asList("primary", "username");
-  private static final List<String> SECONDARY_PARAM = Arrays.asList("secondary", "username");
+  private static final List<String> SECONDARY_PARAM = Arrays.asList("secondary");
 
   private final RightService rightService;
 
@@ -40,21 +40,23 @@ public class RightAspect {
   @Before(value = "annotatedWithRight()")
   public void before(JoinPoint call) throws Throwable {
     Signature signature = call.getStaticPart().getSignature();
+    String clazz = call.getTarget().getClass().getSimpleName();
     if (signature instanceof MethodSignature) {
       MethodSignature ms = (MethodSignature) signature;
       Method method = ms.getMethod();
       String[] argNames = ms.getParameterNames();
       Object[] argValues = call.getArgs();
-      checkRights(buildFilter(method, argNames, argValues));
+      checkRights(buildFilter(clazz, method, argNames, argValues));
     }
   }
 
   @SuppressWarnings("unchecked")
-  private RightFilter buildFilter(Method method,
+  private RightFilter buildFilter(String clazz,
+                                  Method method,
                                   String[] argNames,
                                   Object[] argValues) {
     String primary = "";
-    String secondary = "";
+    String secondary = clazz;
 
      if (null != argNames
         && null != argValues

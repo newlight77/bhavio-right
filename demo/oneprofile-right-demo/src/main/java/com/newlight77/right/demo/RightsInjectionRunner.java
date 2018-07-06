@@ -20,30 +20,30 @@ public class RightsInjectionRunner implements CommandLineRunner {
 
     @Override
     public void run(final String... args) throws Exception {
-        RightNeo4jEntity entity1 = RightNeo4jEntity.builder()
-                .primary("master_user")
-                .secondary("core_resource")
-                .rights(Sets.newHashSet(Right.ADMIN_READ, Right.ADMIN_WRITE))
-                .build();
-        rightRepository.save(entity1);
-        RightNeo4jEntity entity2 = RightNeo4jEntity.builder()
-                .primary("master_user")
-                .secondary("admin_resource")
-                .rights(Sets.newHashSet(Right.ADMIN_READ, Right.ADMIN_WRITE))
-                .build();
-        rightRepository.save(entity2);
-
         RightNeo4jEntity entity11 = RightNeo4jEntity.builder()
-                .primary("master_user")
-                .secondary("core_resource")
+                .primary("newlight77@gmail.com")
+                .secondary("UserService")
+                .rights(Sets.newHashSet(Right.ADMIN_READ, Right.ADMIN_WRITE))
+                .build();
+        rightRepository.save(entity11);
+        RightNeo4jEntity entity12 = RightNeo4jEntity.builder()
+                .primary("newlight77@gmail.com")
+                .secondary("UserService")
+                .rights(Sets.newHashSet(Right.ADMIN_READ, Right.ADMIN_WRITE))
+                .build();
+        rightRepository.save(entity12);
+
+        RightNeo4jEntity entity21 = RightNeo4jEntity.builder()
+                .primary("newlight77@gmail.com")
+                .secondary("UserService")
                 .rights(Sets.newHashSet(Right.ADMIN_READ, Right.ADMIN_WRITE))
                 .build();
         rightRepository.save(entity11);
         RightNeo4jEntity entity22 = RightNeo4jEntity.builder()
-                .primary("master_user")
-                .secondary("admin_resource")
+                .primary("newlight77@gmail.com")
+                .secondary("UserService")
                 .rights(Sets.newHashSet(Right.ADMIN_READ, Right.ADMIN_WRITE))
                 .build();
-//        rightRepository.save(entity22);
+        rightRepository.save(entity22);
     }
 }

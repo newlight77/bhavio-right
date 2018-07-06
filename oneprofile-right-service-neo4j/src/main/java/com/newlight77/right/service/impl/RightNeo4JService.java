@@ -9,6 +9,7 @@ import com.newlight77.right.service.RightFilter;
 import com.newlight77.right.service.RightService;
 
 import java.time.Instant;
+import java.util.Collection;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -33,7 +34,7 @@ public class RightNeo4JService implements RightService {
 
   public boolean hasRight(RightFilter filter) {
     Set<Right> rights = new HashSet<>();
-    Iterable<RightNeo4jEntity> entities = rightRepository.findByPrimaryAndSecondary(filter.getPrimary(), filter.getSecondary());
+    Collection<RightNeo4jEntity> entities = rightRepository.rightsByPrimaryAndSecondary(filter.getPrimary(), filter.getSecondary(), 100);
     entities.forEach(entity -> {
       rights.addAll(entity.getRights());
     });
