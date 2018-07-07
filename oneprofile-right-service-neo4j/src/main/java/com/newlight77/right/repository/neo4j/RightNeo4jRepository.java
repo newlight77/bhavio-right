@@ -9,9 +9,7 @@ import java.util.Collection;
 
 public interface RightNeo4jRepository extends Neo4jRepository<RightNeo4jEntity, String> {
 
-  Iterable<RightNeo4jEntity> findByPrimaryAndSecondary(String primary, String secondary);
-
   @Query("MATCH (u:Right) WHERE u.primary = {primary} AND u.secondary = {secondary} RETURN u LIMIT {limit}")
-  Collection<RightNeo4jEntity> rightsByPrimaryAndSecondary(@Param("primary") String primary, @Param("secondary") String secondary, @Param("limit") int limit);
+  Collection<RightNeo4jEntity> findByPrimaryAndSecondary(@Param("primary") String primary, @Param("secondary") String secondary, @Param("limit") int limit);
 
 }

@@ -6,6 +6,7 @@ import lombok.*;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.HashSet;
 
 @AllArgsConstructor(access = AccessLevel.PRIVATE)
 @Builder
@@ -18,6 +19,6 @@ public class RightFilter implements Serializable {
 
   private String primary;
   private String secondary;
-  private Collection<Right> rights = new ArrayList<>();;
+  private Collection<Right> rights = new HashSet<>();
 
 }

@@ -1,14 +1,17 @@
 package com.newlight77.right.service;
 
 
-import com.newlight77.right.model.Right;
-import com.newlight77.right.model.TemporaryRight;
+import com.newlight77.right.model.RightDto;
 
-import java.util.Set;
+import java.util.Collection;
 
 public interface RightService {
 
-  public void addRight(String primary, String secondary, Set<Right> rights, Set<TemporaryRight> tempRights);
-
   public boolean hasRight(RightFilter filter);
+
+  public RightDto addRight(RightDto right);
+
+  public Collection<RightDto> findByPrimaryAndSecondary(String primary, String secondary);
+
+  public void deleteByPrimaryAndSecondary(String primary, String secondary);
 }
