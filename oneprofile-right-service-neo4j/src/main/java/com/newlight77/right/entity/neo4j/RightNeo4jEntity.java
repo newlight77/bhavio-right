@@ -24,12 +24,13 @@ public class RightNeo4jEntity implements Serializable{
   public RightNeo4jEntity() {}
 
   @Id
-//  @GeneratedValue(strategy = UuidStrategy.class)
-//  private String uid;
+  @GeneratedValue(strategy = UuidStrategy.class)
+  private String uid;
+  @Index
   private String primary;
+  @Index
   private String secondary;
   private Set<Right> rights;
   private Set<TemporaryRight> tempRights;
   private Instant modificationDate;
-
 }

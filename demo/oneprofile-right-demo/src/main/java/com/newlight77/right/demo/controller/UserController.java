@@ -22,35 +22,40 @@ public class UserController {
   }
 
   @PostMapping(value = "")
-  public UserModel create(@RequestHeader("primary") String primay,
-                          @RequestHeader("secondary") String secondary,
+  public UserModel create(@RequestHeader("primary") String primary,
                           @RequestBody UserModel userModel) {
-    return userService.save(primay, secondary, userModel);
+    return userService.save(primary, userModel);
   }
 
   @GetMapping(value = "/{id}")
-  public UserModel findById(Long id) {
-    return userService.findById(id);
+  public UserModel findById(@RequestHeader("primary") String primary,
+                            String id) {
+    return userService.findById(primary, id);
   }
 
   @DeleteMapping(value = "/{id}")
-  public void deleteById(Long aLong) {
-    userService.deleteById(aLong);
+  public void deleteById(@RequestHeader("primary") String primary,
+                         String id) {
+    userService.deleteById(primary, id);
   }
 
   @GetMapping(value = "/page")
-  public Page<UserModel> findAll(Pageable pageable) {
-    return userService.findAll(pageable);
+  public Page<UserModel> findAll(@RequestHeader("primary") String primary,
+                                 Pageable pageable) {
+    return userService.findAll(primary, pageable);
   }
 
   @GetMapping(value = "", params = {"username"})
-  public Collection<UserModel> findByUsername(@RequestParam String username) {
-    return userService.findByUsername(username);
+  public Collection<UserModel> findByUsername(@RequestHeader("primary") String primary,
+                                              @RequestParam String username) {
+    return userService.findByUsername(primary, username);
   }
 
   @GetMapping(value = "", params = {"firstname", "lastname"})
-  public Collection<UserModel> find(@RequestParam String firstname, @RequestParam String lastname) {
-    return userService.find(firstname, lastname);
+  public Collection<UserModel> find(@RequestHeader("primary") String primary,
+                                    @RequestParam String firstname,
+                                    @RequestParam String lastname) {
+    return userService.find(primary, firstname, lastname);
   }
 
 }

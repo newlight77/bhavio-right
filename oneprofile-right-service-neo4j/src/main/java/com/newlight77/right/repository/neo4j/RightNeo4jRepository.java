@@ -9,7 +9,7 @@ import java.util.Collection;
 
 public interface RightNeo4jRepository extends Neo4jRepository<RightNeo4jEntity, String> {
 
-  @Query("MATCH (u:Right) WHERE u.primary = {primary} AND u.secondary = {secondary} RETURN u LIMIT {limit}")
+  @Query("MATCH (r:Right) WHERE r.primary = {primary} AND r.secondary = {secondary} RETURN r LIMIT {limit}")
   Collection<RightNeo4jEntity> findByPrimaryAndSecondary(@Param("primary") String primary, @Param("secondary") String secondary, @Param("limit") int limit);
 
 }

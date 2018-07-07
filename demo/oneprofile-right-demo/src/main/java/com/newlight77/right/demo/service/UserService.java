@@ -27,31 +27,31 @@ public class UserService {
   }
 
   @Rights(rights = Right.ADMIN_WRITE)
-  public UserModel save(String primary, String secondary, UserModel userModel) {
+  public UserModel save(String primary, UserModel userModel) {
     UserEntity entity = UserMapper.from(userModel);
     return UserMapper.to(userRepository.save(entity));
   }
 
   @Rights(rights = Right.ADMIN_DELETE)
-  public void deleteById(Long aLong) {
-    userRepository.deleteById(aLong);
+  public void deleteById(String primary, String id) {
+    userRepository.deleteById(id);
   }
 
   @Rights(rights = Right.ADMIN_READ)
-  public UserModel findById(Long id) {
+  public UserModel findById(String primary, String id) {
     return userRepository.findById(id)
         .map(UserMapper::to)
         .orElseThrow(() -> new NotFoundException("Resource not found"));
   }
 
   @Rights(rights = Right.ADMIN_READ)
-  public Page<UserModel> findAll(Pageable pageable) {
+  public Page<UserModel> findAll(String primary, Pageable pageable) {
     return userRepository.findAll(pageable)
         .map(UserMapper::to);
   }
 
   @Rights(rights = Right.ADMIN_READ)
-  public List<UserModel> findByUsername(String username) {
+  public List<UserModel> findByUsername(String primary, String username) {
     log.info("findByFirstname with username={}", username);
     return userRepository.findByUsername(username)
         .stream()
@@ -60,7 +60,7 @@ public class UserService {
   }
 
   @Rights(rights = Right.ADMIN_READ)
-  public List<UserModel> find(String firstname, String lastname) {
+  public List<UserModel> find(String primary, String firstname, String lastname) {
     log.info("findByFirstname with firstname={} lastname={} username={}", firstname, lastname);
     return userRepository.findByFirstnameAndLastname(firstname, lastname)
         .stream()

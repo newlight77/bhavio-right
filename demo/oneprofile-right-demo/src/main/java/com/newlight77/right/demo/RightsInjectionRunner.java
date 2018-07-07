@@ -28,22 +28,9 @@ public class RightsInjectionRunner implements CommandLineRunner {
         rightRepository.save(entity11);
         RightNeo4jEntity entity12 = RightNeo4jEntity.builder()
                 .primary("newlight77@gmail.com")
-                .secondary("UserService")
+                .secondary("RightCrudService")
                 .rights(Sets.newHashSet(Right.ADMIN_READ, Right.ADMIN_WRITE))
                 .build();
         rightRepository.save(entity12);
-
-        RightNeo4jEntity entity21 = RightNeo4jEntity.builder()
-                .primary("newlight77@gmail.com")
-                .secondary("UserService")
-                .rights(Sets.newHashSet(Right.ADMIN_READ, Right.ADMIN_WRITE))
-                .build();
-        rightRepository.save(entity11);
-        RightNeo4jEntity entity22 = RightNeo4jEntity.builder()
-                .primary("newlight77@gmail.com")
-                .secondary("UserService")
-                .rights(Sets.newHashSet(Right.ADMIN_READ, Right.ADMIN_WRITE))
-                .build();
-        rightRepository.save(entity22);
     }
 }
