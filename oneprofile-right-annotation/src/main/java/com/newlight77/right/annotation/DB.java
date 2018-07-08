@@ -6,19 +6,19 @@ import java.util.List;
 public enum DB {
 
   JPA(Arrays.asList(
-      new Binder("jpa","RightJpaService", "rightService", "rightJpaRepository")
+      new Binder("jpa","HasRightJpaService", "hasRightService", "rightJpaRepository")
   )),
 
   CASSANDRA(Arrays.asList(
-      new Binder("cassandra", "RightCassandraService", "rightService", "rightCassandraRepository")
+      new Binder("cassandra", "HasRightCassandraService", "hasRightService", "rightCassandraRepository")
   )),
 
   MONGO(Arrays.asList(
-      new Binder("mongo","RightMongoService", "rightService", "rightMongoRepository")
+      new Binder("mongo","HasRightMongoService", "hasRightService", "rightMongoRepository")
   )),
 
   NEO4J(Arrays.asList(
-      new Binder("neo4j", "RightNeo4JService", "rightService", "rightNeo4jRepository")
+      new Binder("neo4j", "HasRightNeo4JService", "hasRightService", "rightNeo4jRepository")
   ));
 
   List<Binder> binders;

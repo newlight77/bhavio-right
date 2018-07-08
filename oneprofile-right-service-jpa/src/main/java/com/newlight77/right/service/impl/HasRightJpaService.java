@@ -4,17 +4,17 @@ package com.newlight77.right.service.impl;
 import com.newlight77.right.entity.jpa.RightJpaEntity;
 import com.newlight77.right.model.Right;
 import com.newlight77.right.repository.jpa.RightJpaRepository;
+import com.newlight77.right.service.HasRightService;
 import com.newlight77.right.service.RightFilter;
-import com.newlight77.right.service.RightService;
 
 import java.util.HashSet;
 import java.util.Set;
 
-public class RightJpaService implements RightService {
+public class HasRightJpaService implements HasRightService {
 
   private RightJpaRepository rightRepository;
 
-  public RightJpaService(RightJpaRepository authorizationRepository) {
+  public HasRightJpaService(RightJpaRepository authorizationRepository) {
     this.rightRepository = authorizationRepository;
   }
 

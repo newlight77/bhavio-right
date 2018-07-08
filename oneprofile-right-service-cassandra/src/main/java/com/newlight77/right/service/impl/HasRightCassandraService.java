@@ -4,17 +4,17 @@ package com.newlight77.right.service.impl;
 import com.newlight77.right.entity.cassandra.RightCassandraEntity;
 import com.newlight77.right.model.Right;
 import com.newlight77.right.repository.cassandra.RightCassandraRepository;
+import com.newlight77.right.service.HasRightService;
 import com.newlight77.right.service.RightFilter;
-import com.newlight77.right.service.RightService;
 
 import java.util.HashSet;
 import java.util.Set;
 
-public class RightCassandraService implements RightService {
+public class HasRightCassandraService implements HasRightService {
 
   private RightCassandraRepository rightRepository;
 
-  public RightCassandraService(RightCassandraRepository authorizationRepository) {
+  public HasRightCassandraService(RightCassandraRepository authorizationRepository) {
     this.rightRepository = authorizationRepository;
   }
 

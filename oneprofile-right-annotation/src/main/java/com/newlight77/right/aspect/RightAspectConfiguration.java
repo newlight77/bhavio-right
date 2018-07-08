@@ -1,6 +1,6 @@
 package com.newlight77.right.aspect;
 
-import com.newlight77.right.service.RightService;
+import com.newlight77.right.service.HasRightService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -13,11 +13,11 @@ public class RightAspectConfiguration {
   }
 
   @Autowired
-  public RightService rightService;
+  public HasRightService hasRightService;
 
   @Bean
   public RightAspect authorizationAspect() {
-    return new RightAspect(rightService);
+    return new RightAspect(hasRightService);
   }
 
 }

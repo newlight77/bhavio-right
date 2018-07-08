@@ -2,8 +2,8 @@ package com.newlight77.right.aspect;
 
 import com.newlight77.exception.ForbiddenException;
 import com.newlight77.right.model.Right;
+import com.newlight77.right.service.HasRightService;
 import com.newlight77.right.service.RightFilter;
-import com.newlight77.right.service.RightService;
 import org.apache.commons.lang3.StringUtils;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.Signature;
@@ -28,10 +28,10 @@ public class RightAspect {
   private static final List<String> PRIMARY_PARAM = Arrays.asList("primary", "username");
   private static final List<String> SECONDARY_PARAM = Arrays.asList("secondary");
 
-  private final RightService rightService;
+  private final HasRightService hasRightService;
 
-  public RightAspect(RightService rightService) {
-    this.rightService = rightService;
+  public RightAspect(HasRightService hasRightService) {
+    this.hasRightService = hasRightService;
   }
 
   @Pointcut("within(@com.newlight77.right.aspect.Rights *) || @annotation(com.newlight77.right.aspect.Rights)")
@@ -80,7 +80,7 @@ public class RightAspect {
 
   private void checkRights(RightFilter accessRightFilter) {
     LOGGER.debug("Verification of right : {}", accessRightFilter);
-    if (!rightService.hasRight(accessRightFilter)) {
+    if (!hasRightService.hasRight(accessRightFilter)) {
       throw new ForbiddenException("You don't have access : filter = " + accessRightFilter);
     }
   }

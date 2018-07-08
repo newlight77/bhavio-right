@@ -4,17 +4,17 @@ package com.newlight77.right.service.impl;
 import com.newlight77.right.entity.mongo.RightMongoEntity;
 import com.newlight77.right.model.Right;
 import com.newlight77.right.repository.mongo.RightMongoRepository;
+import com.newlight77.right.service.HasRightService;
 import com.newlight77.right.service.RightFilter;
-import com.newlight77.right.service.RightService;
 
 import java.util.HashSet;
 import java.util.Set;
 
-public class RightMongoService implements RightService {
+public class HasRightMongoService implements HasRightService {
 
   private RightMongoRepository rightRepository;
 
-  public RightMongoService(RightMongoRepository authorizationRepository) {
+  public HasRightMongoService(RightMongoRepository authorizationRepository) {
     this.rightRepository = authorizationRepository;
   }
 
