@@ -4,15 +4,14 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <!--<parent>-->
-        <!--<groupId>com.newlight77</groupId>-->
-        <!--<artifactId>oneprofile-right</artifactId>-->
-        <!--<version>1.0.0-SNAPSHOT</version>-->
-    <!--</parent>-->
-
     <artifactId>oneprofile-right-model</artifactId>
     <groupId>com.newlight77</groupId>
     <version>1.0.0-SNAPSHOT</version>
+
+    <properties>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
+    </properties>
 
     <dependencies>
         <dependency>
