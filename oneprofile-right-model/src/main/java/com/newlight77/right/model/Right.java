@@ -5,6 +5,7 @@ import com.fasterxml.jackson.annotation.JsonValue;
 
 public enum Right {
 
+  OWNER("owner"),
   ADMIN_READ("admin_read"),
   ADMIN_WRITE("admin_write"),
   ADMIN_DELETE("admin_delete");
