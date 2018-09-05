@@ -78,10 +78,10 @@ public class RightAspect {
     return RightFilter.builder().primary(primary).secondary(secondary).rights(rights).build();
   }
 
-  private void checkRights(RightFilter accessRightFilter) {
-    LOGGER.debug("Verification of right : {}", accessRightFilter);
-    if (!hasRightService.hasRight(accessRightFilter)) {
-      throw new ForbiddenException("You don't have access : filter = " + accessRightFilter);
+  private void checkRights(RightFilter rightFilter) {
+    LOGGER.debug("Verification of right : {}", rightFilter);
+    if (!hasRightService.hasRight(rightFilter)) {
+      throw new ForbiddenException("You don't have access : filter = " + rightFilter);
     }
   }
 
