@@ -16,7 +16,7 @@ public class RightAspectConfiguration {
   public HasRightService hasRightService;
 
   @Bean
-  public RightAspect authorizationAspect() {
+  public RightAspect rightAspect() {
     return new RightAspect(hasRightService);
   }
 
