@@ -23,7 +23,14 @@ public class RightServiceStub implements HasRightService {
         entities.forEach(entity -> {
             rights.addAll(entity.getRights());
         });
-        rights.removeAll(filter.getRights());
-        return !rights.isEmpty();
+
+        for ( Right right: filter.getRights() ) {
+            if (rights.contains(right)) {
+                // if database contains at least one right allowed by method
+                return true;
+            }
+        }
+
+        return false;
     }
 }
