@@ -21,7 +21,7 @@ import java.util.Collection;
 import java.util.List;
 
 @Aspect
-@Component
+//@Component
 public class RightAspect {
   private static final Logger LOGGER = LoggerFactory.getLogger(RightAspect.class);
 

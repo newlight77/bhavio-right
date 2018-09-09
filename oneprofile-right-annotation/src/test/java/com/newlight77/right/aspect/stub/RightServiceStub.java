@@ -1,4 +1,4 @@
-package com.newlight77.right.aspect.configuration;
+package com.newlight77.right.aspect.stub;
 
 import com.newlight77.right.model.Right;
 import com.newlight77.right.service.HasRightService;
