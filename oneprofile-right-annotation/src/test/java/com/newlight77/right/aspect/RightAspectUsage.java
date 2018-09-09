@@ -1,9 +1,9 @@
-package com.newlight77.right.aspect.stub;
+package com.newlight77.right.aspect;
 
-import com.newlight77.right.aspect.Rights;
 import com.newlight77.right.model.Right;
 
-public class TestingService {
+public class RightAspectUsage {
+
     @Rights(rights = {Right.ADMIN_READ})
     public String adminRead(String primary, String secondary) {
         return "allowedRead";
@@ -13,7 +13,6 @@ public class TestingService {
     public String adminWrite(String primary, String secondary) {
         return "allowedWrite";
     }
-
 
     @Rights(rights = {Right.ADMIN_READ, Right.ADMIN_WRITE})
     public String adminReadWrite(String primary, String secondary) {

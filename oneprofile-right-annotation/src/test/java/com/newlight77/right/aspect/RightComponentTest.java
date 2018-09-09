@@ -4,17 +4,14 @@ import com.google.common.collect.Sets;
 import com.newlight77.exception.ForbiddenException;
 import com.newlight77.right.aspect.stub.RightEntity;
 import com.newlight77.right.aspect.stub.RightRepository;
-import com.newlight77.right.aspect.stub.RightServiceStub;
-import com.newlight77.right.aspect.stub.TestingService;
+import com.newlight77.right.aspect.stub.RightTestConfig;
 import com.newlight77.right.model.Right;
-import com.newlight77.right.service.HasRightService;
 import org.assertj.core.api.Assertions;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.ExpectedException;
 import org.junit.runner.RunWith;
-import org.springframework.boot.test.mock.mockito.MockBean;
-import org.springframework.context.annotation.Bean;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringRunner;
 
@@ -23,28 +20,17 @@ import java.util.Arrays;
 import static org.mockito.Mockito.when;
 
 @RunWith(SpringRunner.class)
-//@SpringBootTest(
-//        classes = {
-////                RightTestConfig.class,
-//                RightAspectConfiguration.class
-//        }
-//)
-@ContextConfiguration(classes={RightAspectConfiguration.class})
+@ContextConfiguration(classes={RightTestConfig.class})
 public class RightComponentTest {
 
     @Rule
     public ExpectedException thrown = ExpectedException.none();
 
-    @MockBean
+    @Autowired
     private RightRepository rightRepositoryMock;
 
-    @Bean
-    public HasRightService hasRightService() {
-        return new RightServiceStub(rightRepositoryMock);
-    }
-
-//    @Autowired
-//    private RightRepository rightRepositoryMock;
+    @Autowired
+    private RightAspectUsage rightAspectUsage;
 
     @Test
     public void shouldHasRight_whenMethodAllowReadAndDataAllowedRead() throws Throwable {
@@ -56,13 +42,13 @@ public class RightComponentTest {
                 .findByPrimaryAndSecondary(primary, secondary, 100))
                 .thenReturn(Arrays.asList(rightEntity)); // authorized
 
-        String result = new TestingService().adminRead(primary, secondary);
+        String result = rightAspectUsage.adminRead(primary, secondary);
 
         Assertions.assertThat(result).isEqualTo("allowedRead");
     }
 
     @Test
-    public void shouldHasRight_whenMethodAllowWriteAndDataNotAllowedWrite() throws Throwable {
+    public void shouldNotHasRight_whenMethodAllowWriteAndDataNotAllowedWrite() throws Throwable {
         // Given
         String primary = "primaryId";
         String secondary = "secondaryId";
@@ -73,7 +59,7 @@ public class RightComponentTest {
                 .thenReturn(Arrays.asList(rightEntity)); // authorized
 
         // When
-        String result = new TestingService().adminWrite(primary, secondary);
+        String result = rightAspectUsage.adminWrite(primary, secondary);
 
         // Then
         thrown.expect(ForbiddenException.class);
