@@ -4,7 +4,6 @@ import com.newlight77.exception.ForbiddenException;
 import com.newlight77.right.model.Right;
 import com.newlight77.right.service.HasRightService;
 import com.newlight77.right.service.RightFilter;
-import netscape.security.ForbiddenTargetException;
 import org.apache.commons.lang3.StringUtils;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.Signature;
