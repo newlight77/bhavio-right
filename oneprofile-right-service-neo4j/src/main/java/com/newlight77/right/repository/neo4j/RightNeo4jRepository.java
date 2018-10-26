@@ -12,4 +12,7 @@ public interface RightNeo4jRepository extends Neo4jRepository<RightNeo4jEntity, 
   @Query("MATCH (r:Right) WHERE r.primary = {primary} AND r.secondary = {secondary} RETURN r LIMIT {limit}")
   Collection<RightNeo4jEntity> findByPrimaryAndSecondary(@Param("primary") String primary, @Param("secondary") String secondary, @Param("limit") int limit);
 
+  @Query("MATCH (r:Right) WHERE r.primary = {primary} AND r.secondary = {secondary} DELETE r")
+  Collection<RightNeo4jEntity> deleteByPrimaryAndSecondary(@Param("primary") String primary, @Param("secondary") String secondary);
+
 }
