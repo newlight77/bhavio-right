@@ -1,6 +1,6 @@
 package com.newlight77.right.aspect;
 
-import com.newlight77.exception.ForbiddenException;
+import com.newlight77.right.exception.NoRightException;
 import com.newlight77.right.model.Right;
 import com.newlight77.right.service.HasRightService;
 import com.newlight77.right.service.RightFilter;
@@ -79,7 +79,7 @@ public class RightAspect {
   private void checkRights(RightFilter rightFilter) {
     LOGGER.debug("Verification of right : {}", rightFilter);
     if (!hasRightService.hasRight(rightFilter)) {
-      throw new ForbiddenException("You don't have access : filter = " + rightFilter);
+      throw new NoRightException("You don't have right access : filter = " + rightFilter);
     }
   }
 }

@@ -1,7 +1,6 @@
 package com.newlight77.right.demo.service;
 
 
-import com.newlight77.exception.NotFoundException;
 import com.newlight77.right.aspect.Rights;
 import com.newlight77.right.demo.entity.UserEntity;
 import com.newlight77.right.demo.mapper.UserMapper;
@@ -11,6 +10,7 @@ import com.newlight77.right.model.Right;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+import org.springframework.web.client.ResourceAccessException;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -41,7 +41,7 @@ public class UserService {
   public UserModel findById(String primary, String id) {
     return userRepository.findById(id)
         .map(UserMapper::to)
-        .orElseThrow(() -> new NotFoundException("Resource not found"));
+        .orElseThrow(() -> new ResourceAccessException("Resource not found"));
   }
 
   @Rights(rights = Right.ADMIN_READ)

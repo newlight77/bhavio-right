@@ -1,7 +1,7 @@
 package com.newlight77.right.aspect;
 
-import com.newlight77.exception.ForbiddenException;
 import com.newlight77.right.aspect.stub.RightTestConfig;
+import com.newlight77.right.exception.NoRightException;
 import com.newlight77.right.model.Right;
 import com.newlight77.right.service.HasRightService;
 import com.newlight77.right.service.RightFilter;
@@ -111,9 +111,9 @@ public class RightAspectTest {
                 .build();
         when(hasRightServiceMock.hasRight(eq(filter))).thenReturn(false);
 
-        thrown.expect(ForbiddenException.class);
+        thrown.expect(NoRightException.class);
         thrown.expectMessage(
-                "You don't have access : filter = RightFilter(primary=primaryId, secondary=secondaryId, rights=[ADMIN_WRITE])");
+                "You don't have right access : filter = RightFilter(primary=primaryId, secondary=secondaryId, rights=[ADMIN_WRITE])");
 
         // when
         rightAspect.before(joinPointMock);

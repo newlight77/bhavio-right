@@ -1,6 +1,6 @@
 package com.newlight77.right.aspect;
 
-import com.newlight77.exception.ForbiddenException;
+import com.newlight77.right.exception.NoRightException;
 import com.newlight77.right.model.Right;
 import com.newlight77.right.service.HasRightService;
 import com.newlight77.right.service.RightFilter;
@@ -9,7 +9,6 @@ import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.ExpectedException;
 import org.junit.runner.RunWith;
-import org.mockito.Mockito;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.AbstractJUnit4SpringContextTests;
@@ -55,7 +54,7 @@ public class RightAspectConfigTest extends AbstractJUnit4SpringContextTests {
         Assertions.assertThat(result).isEqualTo("allowedRead");
     }
 
-    @Test(expected = ForbiddenException.class)
+    @Test(expected = NoRightException.class)
     public void shouldNotHasRight_whenMethodAllowWriteAndDataNotAllowedWrite() throws Throwable {
         // Given
         String primary = "primaryId";
@@ -74,9 +73,9 @@ public class RightAspectConfigTest extends AbstractJUnit4SpringContextTests {
         String result = rightAspectClient.adminWrite(primary, secondary);
 
         // Then
-        thrown.expect(ForbiddenException.class);
+        thrown.expect(NoRightException.class);
         thrown.expectMessage(
-                "You don't have access : filter = RightFilter(primary=primaryId, secondary=secondaryId, rights=[ADMIN_WRITE])");
+                "You don't have right access : filter = RightFilter(primary=primaryId, secondary=secondaryId, rights=[ADMIN_WRITE])");
 
     }
 }
