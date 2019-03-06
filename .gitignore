@@ -8,6 +8,8 @@
 .settings
 .classpath
 .factorypath
+*.releaseBackup
+release.properties
 
 # Ignore Gradle GUI config
 gradle-app.setting
