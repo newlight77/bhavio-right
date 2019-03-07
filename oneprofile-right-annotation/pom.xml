@@ -10,7 +10,7 @@
 
     <artifactId>oneprofile-right-annotation</artifactId>
     <groupId>io.oneprofile</groupId>
-    <version>1.0.0</version>
+    <version>1.0.1-SNAPSHOT</version>
 
 
     <name>oneprofile-right-annotation</name>
@@ -60,7 +60,7 @@
         <connection>scm:git:git://github.com/newlight77/oneprofile-right.git</connection>
         <developerConnection>scm:git:git@github.com:newlight77/oneprofile-right.git</developerConnection>
         <url>https://github.com/newlight77/oneprofile-right</url>
-        <tag>oneprofile-right-1.0.0</tag>
+        <tag>HEAD</tag>
     </scm>
 
     <issueManagement>

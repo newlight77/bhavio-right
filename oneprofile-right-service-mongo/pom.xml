@@ -10,7 +10,7 @@
     
     <artifactId>oneprofile-right-service-mongo</artifactId>
     <groupId>io.oneprofile</groupId>
-    <version>1.0.0</version>
+    <version>1.0.1-SNAPSHOT</version>
 
     <properties>
         <maven.compiler.source>1.8</maven.compiler.source>
@@ -63,8 +63,4 @@
             </snapshots>
         </repository>
     </repositories>
-
-  <scm>
-    <tag>oneprofile-right-1.0.0</tag>
-  </scm>
 </project>
