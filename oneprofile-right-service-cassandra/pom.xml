@@ -5,11 +5,11 @@
     <parent>
         <groupId>io.oneprofile</groupId>
         <artifactId>oneprofile-right</artifactId>
-        <version>1.0.2</version>
+        <version>1.0.3-SNAPSHOT</version>
     </parent>
 
     <artifactId>oneprofile-right-service-cassandra</artifactId>
-    <version>1.0.2</version>
+    <version>1.0.3-SNAPSHOT</version>
 
     <name>oneprofile-right-annotation</name>
     <description>Use @Right annotation to control access to service or methods</description>

@@ -4,7 +4,7 @@
 
     <artifactId>oneprofile-right</artifactId>
     <groupId>io.oneprofile</groupId>
-    <version>1.0.2</version>
+    <version>1.0.3-SNAPSHOT</version>
     <packaging>pom</packaging>
 
     <name>oneprofile-right</name>
@@ -54,7 +54,7 @@
         <connection>scm:git:git://github.com/newlight77/oneprofile-right.git</connection>
         <developerConnection>scm:git:git@github.com:newlight77/oneprofile-right.git</developerConnection>
         <url>https://github.com/newlight77/oneprofile-right</url>
-        <tag>oneprofile-right-1.0.2</tag>
+        <tag>HEAD</tag>
     </scm>
 
     <issueManagement>
