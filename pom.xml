@@ -11,6 +11,22 @@
     <description>Use @Right annotation to control access to service or methods</description>
     <url>https://github.com/newlight77/oneprofile-right</url>
 
+    <modules>
+        <module>demo</module>
+        <module>oneprofile-right-annotation</module>
+        <module>oneprofile-right-model</module>
+        <module>oneprofile-right-service-cassandra</module>
+        <module>oneprofile-right-service-jpa</module>
+        <module>oneprofile-right-service-mongo</module>
+        <module>oneprofile-right-service-neo4j</module>
+        <module>oneprofile-right-service</module>
+    </modules>
+
+    <properties>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
+    </properties>
+
     <organization>
         <url>https://github.com/newlight77/oneprofile-right</url>
         <name>Oneprofile</name>
@@ -34,16 +50,22 @@
         </developer>
     </developers>
 
-    <modules>
-        <module>demo</module>
-        <module>oneprofile-right-annotation</module>
-        <module>oneprofile-right-model</module>
-        <module>oneprofile-right-service-cassandra</module>
-        <module>oneprofile-right-service-jpa</module>
-        <module>oneprofile-right-service-mongo</module>
-        <module>oneprofile-right-service-neo4j</module>
-        <module>oneprofile-right-service</module>
-    </modules>
+    <scm>
+        <connection>scm:git:git://github.com/newlight77/oneprofile-right.git</connection>
+        <developerConnection>scm:git:git@github.com:newlight77/oneprofile-right.git</developerConnection>
+        <url>https://github.com/newlight77/oneprofile-right</url>
+        <tag>HEAD</tag>
+    </scm>
+
+    <issueManagement>
+        <system>Github</system>
+        <url>https://github.com/newlight77/oneprofile-right/issues</url>
+    </issueManagement>
+
+    <ciManagement>
+        <system>Travis</system>
+        <url>https://travis-ci.org/newlight77/oneprofile-right</url>
+    </ciManagement>
 
     <distributionManagement>
         <snapshotRepository>
@@ -56,22 +78,16 @@
         </repository>
     </distributionManagement>
 
-    <scm>
-        <connection>scm:git:git://github.com/newlight77/oneprofile-right.git</connection>
-        <developerConnection>scm:git:git@github.com:newlight77/oneprofile-right.git</developerConnection>
-        <url>https://github.com/newlight77/oneprofile-right</url>
-      <tag>HEAD</tag>
-  </scm>
-
-    <issueManagement>
-        <system>Github</system>
-        <url>https://github.com/newlight77/oneprofile-right/issues</url>
-    </issueManagement>
-
-    <ciManagement>
-        <system>Travis</system>
-        <url>https://travis-ci.org/newlight77/oneprofile-right</url>
-    </ciManagement>
+    <repositories>
+        <repository>
+            <id>spring-libs-release</id>
+            <name>Spring Releases</name>
+            <url>https://repo.spring.io/libs-release</url>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+        </repository>
+    </repositories>
 
     <build>
         <resources>
