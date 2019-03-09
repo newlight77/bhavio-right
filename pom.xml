@@ -35,7 +35,7 @@
     </developers>
 
     <modules>
-        <!--<module>demo</module>-->
+        <module>demo</module>
         <module>oneprofile-right-annotation</module>
         <module>oneprofile-right-model</module>
         <module>oneprofile-right-service-cassandra</module>
