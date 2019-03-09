@@ -4,7 +4,7 @@
 
     <artifactId>oneprofile-right-demo</artifactId>
     <groupId>io.oneprofile</groupId>
-    <version>1.0.2-SNAPSHOT</version>
+    <version>1.0.2</version>
 
     <parent>
         <groupId>org.springframework.boot</groupId>
@@ -142,4 +142,8 @@
             </plugin>
         </plugins>
     </build>
+
+  <scm>
+    <tag>oneprofile-right-1.0.2</tag>
+  </scm>
 </project>

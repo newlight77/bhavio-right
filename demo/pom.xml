@@ -4,7 +4,7 @@
 
     <artifactId>oneprofile-demo-parent</artifactId>
     <groupId>io.oneprofile</groupId>
-    <version>1.0.2-SNAPSHOT</version>
+    <version>1.0.2</version>
     <packaging>pom</packaging>
 
     <modules>
