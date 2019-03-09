@@ -12,7 +12,7 @@
     <version>1.0.3-SNAPSHOT</version>
 
     <name>oneprofile-right-model</name>
-    <description>Common models used by @Right annotation to control access to service or methods</description>
+    <description>Model used by @Right annotation to control access to service or methods</description>
 
     <dependencies>
         <dependency>

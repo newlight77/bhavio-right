@@ -11,8 +11,8 @@
     <artifactId>oneprofile-right-service-jpa</artifactId>
     <version>1.0.3-SNAPSHOT</version>
 
-    <name>oneprofile-right-annotation</name>
-    <description>Use @Right annotation to control access to service or methods</description>
+    <name>oneprofile-right-service-java</name>
+    <description>JPA implementation of service used @Right annotation to control access to service or methods</description>
 
     <properties>
         <maven.compiler.source>1.8</maven.compiler.source>

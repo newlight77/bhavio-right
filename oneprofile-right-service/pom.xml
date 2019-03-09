@@ -11,8 +11,8 @@
     <artifactId>oneprofile-right-service</artifactId>
     <version>1.0.3-SNAPSHOT</version>
 
-    <name>oneprofile-right-annotation</name>
-    <description>Use @Right annotation to control access to service or methods</description>
+    <name>oneprofile-right-service</name>
+    <description>Service interface used @Right annotation to control access to service or methods</description>
 
     <dependencies>
         <dependency>

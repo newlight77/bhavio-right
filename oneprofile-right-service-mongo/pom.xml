@@ -11,8 +11,8 @@
     <artifactId>oneprofile-right-service-mongo</artifactId>
     <version>1.0.3-SNAPSHOT</version>
 
-    <name>oneprofile-right-annotation</name>
-    <description>Use @Right annotation to control access to service or methods</description>
+    <name>oneprofile-right-service-mongo</name>
+    <description>Mongo implementation of service used @Right annotation to control access to service or methods</description>
 
     <dependencies>
         <dependency>
